@@ -2,6 +2,7 @@ using JoeGregory.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.Services;
 
 namespace JoeGregory.Client
 {
@@ -21,6 +22,13 @@ namespace JoeGregory.Client
 
             builder.Services.AddApiAuthorization();
 
+           /* builder.Services.AddFluentUIComponents(options =>
+            {
+                options.HostingModel = BlazorHostingModel.WebAssembly;
+                options.IconConfiguration = ConfigurationGenerator.GetIconConfiguration();
+                options.EmojiConfiguration = ConfigurationGenerator.GetEmojiConfiguration();
+            });*/
+            builder.Services.AddMudServices();
             await builder.Build().RunAsync();
         }
     }
