@@ -1,10 +1,29 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @media (min-width: 992px) {
-    .portfolio-card {
+    .portfolio-card-sizing {
         max-width: 70vw;
+        margin: auto;
+        
+    }
+}
+@media (max-width: 500px) {
+    .portfolio-card-sizing {
+        max-width: 90vw;
         margin: auto;
     }
 }
+.portfolio-card{
+    margin-bottom: 15px;
+}
+/*
+.portfolio-card {
+    background-color: #592c8c !important;
+}
+
+body {
+    background-color: #e0d6eb !important; 
+}
+*/
 .video-container {
     position: relative;
     overflow: hidden;

@@ -10,7 +10,7 @@
     [Parameter] public bool IsVideo { get; set; }
 }
 
-<MudCard Class="portfolio-card" Elevation="23" id="@Id">
+<MudCard Elevation="23" id="@Id" Class="portfolio-card-sizing portfolio-card">
     <MudCardHeader>
         <CardHeaderContent>
             <MudText Typo="Typo.h6">@ProjectName</MudText>
@@ -30,8 +30,8 @@
     {
         <MudCardMedia Image="@ImageOrVideoLink" Height="500" />
     }
-    <MudCardContent>
-        <MudExpansionPanels>
+    <MudCardContent Class="mt-5">
+        <MudExpansionPanels Elevation="20">
             <MudExpansionPanel Text="Description">@Description</MudExpansionPanel>
         </MudExpansionPanels>
     </MudCardContent>
@@ -40,6 +40,7 @@
         <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default" OnClick="@(e => ShareContent(Id))" />
     </MudCardActions>
 </MudCard>
+
 
 @code {
     @inject IJSRuntime JSRuntime

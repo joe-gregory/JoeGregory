@@ -1,16 +1,27 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <NavMenu />
+    
     <main>
-        <article class="content px-4">
-            <MudThemeProvider />
+        <article class="content">
+            <MudThemeProvider Theme="myTheme"/>
             <MudDialogProvider />
             <MudSnackbarProvider />
-            @Body
-            <Footer />
+            <MudLayout Style="background-color: #9b4af7">
+                <NavMenu />
+                <MudMainContent>
+                    @Body
+                </MudMainContent>
+            </MudLayout>
         </article>
-
     </main>
-
 </div>
+@code{
+    private MudTheme myTheme = new()
+    {
+        Palette = new Palette()
+        {
+                Primary = "#592c8c",
+        }
+    };
+}
