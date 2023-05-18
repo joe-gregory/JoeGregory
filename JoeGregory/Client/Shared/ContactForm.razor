@@ -1,5 +1,14 @@
-﻿<MudPaper Class="pa-4">
+﻿@page "/contact"
+@using System.Net.Http
+@using System.Net.Http.Json
+@inject HttpClient HttpClient
+@inject IDialogService DialogService
+
+<MudPaper Class="pa-4">
     <MudForm @ref="form">
+        <MudText><strong>Email: </strong>joe@gummilabs.com</MudText>
+        <MudText><strong>Cell: </strong> (619) 636 - 0455</MudText>
+        <MudDivider />
         <MudTextField @bind-Value="model.Name" Label="Your Name" For="@(() => model.Name)" HelperText="Enter your full name" Variant="Variant.Text" />
         <MudTextField @bind-Value="model.Email" Label="Your Email" For="@(() => model.Email)" HelperText="Enter your email address" Variant="Variant.Text" />
         <MudTextField @bind-Value="model.Message" Label="Your Message" For="@(() => model.Message)" HelperText="Enter your message" Variant="Variant.Text" />
@@ -23,8 +32,23 @@
         await form.Validate();
         if (form.IsValid)
         {
-            // Now you can handle the sending of your email or message here
-            Console.WriteLine($"Name: {model.Name}, Email: {model.Email}, Message: {model.Message}");
+            var response = await HttpClient.PostAsJsonAsync<ContactModel>("api/email", model);
+            if (response.IsSuccessStatusCode)
+            {
+                var parameters = new DialogParameters();
+                parameters.Add("Message", "Your email was successfully sent and you should get a copy in your inbox!");
+
+                var options = new DialogOptions { CloseOnEscapeKey = true };
+                DialogService.Show<Dialogue>("Contact", parameters, options);
+            }
+            else
+            {
+                var parameters = new DialogParameters();
+                parameters.Add("Message", "There was an error sending the email.");
+
+                var options = new DialogOptions { CloseOnEscapeKey = true };
+                DialogService.Show<Dialogue>("Contact", parameters, options);
+            }
         }
     }
 }

@@ -1,8 +1,11 @@
+using JoeGregory.Client;
 using JoeGregory.Server.Data;
 using JoeGregory.Server.Models;
+using JoeGregory.Server.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using sib_api_v3_sdk.Client;
 
 namespace JoeGregory
 {
@@ -18,17 +21,20 @@ namespace JoeGregory
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+              //  .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            builder.Services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+            //builder.Services.AddIdentityServer()
+              //  .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
-            builder.Services.AddAuthentication()
-                .AddIdentityServerJwt();
+            //builder.Services.AddAuthentication()
+              //  .AddIdentityServerJwt();
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
+
+            var brevoApiKey = builder.Configuration.GetSection("Brevo:ApiKey").Value;
+            builder.Services.AddSingleton(new EmailService(brevoApiKey));
 
             var app = builder.Build();
 
@@ -52,7 +58,7 @@ namespace JoeGregory
 
             app.UseRouting();
 
-            app.UseIdentityServer();
+            //app.UseIdentityServer();
             app.UseAuthorization();
 
 
