@@ -21,7 +21,8 @@ namespace JoeGregory.Client
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("JoeGregory.ServerAPI"));
 
             builder.Services.AddApiAuthorization();
-
+            builder.Services.AddMudServices();
+            builder.Services.AddMudBlazorDialog();
             builder.Services.AddMudServices();
             await builder.Build().RunAsync();
         }

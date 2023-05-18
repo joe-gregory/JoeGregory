@@ -1,0 +1,30 @@
+﻿<MudPaper Class="pa-4">
+    <MudForm @ref="form">
+        <MudTextField @bind-Value="model.Name" Label="Your Name" For="@(() => model.Name)" HelperText="Enter your full name" Variant="Variant.Text" />
+        <MudTextField @bind-Value="model.Email" Label="Your Email" For="@(() => model.Email)" HelperText="Enter your email address" Variant="Variant.Text" />
+        <MudTextField @bind-Value="model.Message" Label="Your Message" For="@(() => model.Message)" HelperText="Enter your message" Variant="Variant.Text" />
+        <MudButton Color="Color.Primary" OnClick="Send">Send</MudButton>
+    </MudForm>
+</MudPaper>
+
+@code {
+    class ContactModel
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Message { get; set; }
+    }
+
+    MudForm form;
+    ContactModel model = new ContactModel();
+
+    async Task Send()
+    {
+        await form.Validate();
+        if (form.IsValid)
+        {
+            // Now you can handle the sending of your email or message here
+            Console.WriteLine($"Name: {model.Name}, Email: {model.Email}, Message: {model.Message}");
+        }
+    }
+}

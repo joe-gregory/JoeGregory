@@ -1,8 +1,23 @@
-﻿<div class="d-flex flex-column min-vh-100">
-    <footer class="footer mt-auto mb-5 sticky-bottom bg-dark d-flex justify-content-center align-items-center">
-        <div class="btn-group d-flex w-100">
-            <a class="btn btn-primary flex-grow-1">Contact</a>
-        </div>
-    </footer>
-</div>
+﻿@inject IJSRuntime jsRuntime
+@inject IDialogService DialogService
+
+<MudAppBar Bottom="true" Fixed="true" Color="Color.Primary" Elevation="1">
+    <MudButton OnClick="@ShowForm" Elevation="24" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" EndIcon="@Icons.Material.Filled.Send">Contact Me</MudButton>
+</MudAppBar>
+
+@code {
+    private async Task ShowForm()
+    {
+        var parameters = new DialogParameters();
+        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+
+        var dialog = DialogService.Show<ContactForm>("Contact Me", parameters, options);
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            await jsRuntime.InvokeVoidAsync("alert", "Your message was sent successfully!");
+        }
+    }
+}
 

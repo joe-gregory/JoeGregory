@@ -9,9 +9,11 @@
             <MudSnackbarProvider />
             <MudLayout Style="background-color: #9b4af7">
                 <NavMenu />
-                <MudMainContent>
+                <MudMainContent Style="background-color: #9b4af7">
                     @Body
+                    
                 </MudMainContent>
+                <Footer />
             </MudLayout>
         </article>
     </main>
@@ -22,6 +24,7 @@
         Palette = new Palette()
         {
                 Primary = "#592c8c",
+                Background= "#9b4af7",
         }
     };
 }
