@@ -1,6 +1,39 @@
 ﻿@page "/"
+@{
+    var description = new MarkupString(
+            @"<p>This is the first paragraph of my project description.
+This is the first paragraph of my project description.
+This is the first paragraph of my project description.
+This is the first paragraph of my project description.
+This is the first paragraph of my project description.</p>
+<p>And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!</p>
+<p>And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!
+And here's another paragraph!</p>");
+}
 
 <PageTitle>Joseph Gregory</PageTitle>
-<MudText Typo="Typo.h3" Align="Align.Center">Welcome to Joseph Gregory's Portfolio</MudText>
-<PortfolioCard />
+
+<PortfolioCard Id="StudyStacks"
+               ProjectName="Study Stacks"
+               ValueProposition="Memorization study helper website"
+               TechStack="Razor pages, C#, SQL"
+               ProjectLink="https://www.studystacks.net"
+               GithubRepoLink="https://github.com/joe-gregory/StudyStacks"
+               ImageOrVideoLink="https://www.youtube.com/embed/9pigruvPi-Q"
+               Description=@description 
+               IsVideo=true
+               />
 

@@ -1,22 +1,52 @@
-﻿<MudCard Class="portfolio-card">
+﻿@code {
+    [Parameter] public string? Id { get; set; }
+    [Parameter] public string? ProjectName { get; set; }
+    [Parameter] public string? ValueProposition { get; set; }
+    [Parameter] public string? TechStack { get; set; }
+    [Parameter] public string? ProjectLink { get; set; }
+    [Parameter] public string? GithubRepoLink { get; set; }
+    [Parameter] public string? ImageOrVideoLink { get; set; }
+    [Parameter] public MarkupString? Description { get; set; }
+    [Parameter] public bool IsVideo { get; set; }
+}
+
+<MudCard Class="portfolio-card" Elevation="23" id="@Id">
     <MudCardHeader>
-        <CardHeaderAvatar>
-            <MudAvatar Color="Color.Secondary">I</MudAvatar>
-        </CardHeaderAvatar>
         <CardHeaderContent>
-            <MudText Typo="Typo.body1">Istra Croatia</MudText>
-            <MudText Typo="Typo.body2">Peninsula in Europe</MudText>
+            <MudText Typo="Typo.h6">@ProjectName</MudText>
+            <MudText Typo="Typo.overline">@ValueProposition</MudText>
+            <MudText Typo="Typo.body2"><strong>Tech stack: </strong>@TechStack</MudText>
+            <MudLink Href="@ProjectLink" Underline="Underline.Always">@ProjectLink</MudLink>
         </CardHeaderContent>
         <CardHeaderActions>
-            <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Default" Href="@GithubRepoLink" />
         </CardHeaderActions>
     </MudCardHeader>
-    <MudCardMedia Image="https://media.istockphoto.com/id/1330026475/photo/ad-deir-monastery-ruins-carved-in-rocky-wall-at-petra-jordan.jpg?s=612x612&w=0&k=20&c=lOBvDYBQEghodAiEX-kOGlprmDARyRyCN4iJeBTwYN0=" Height="250" />
+    @if (IsVideo)
+    {
+        <MudCardMediaVideo VideoUrl="@ImageOrVideoLink" Height="500" />
+    }
+    else
+    {
+        <MudCardMedia Image="@ImageOrVideoLink" Height="500" />
+    }
     <MudCardContent>
-        <MudText Typo="Typo.body2">This photo was taken in a small village in Istra Croatia.</MudText>
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="Description">@Description</MudExpansionPanel>
+        </MudExpansionPanels>
     </MudCardContent>
     <MudCardActions>
-        <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />
-        <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default" OnClick="@(e => ShareContent(Id))" />
     </MudCardActions>
 </MudCard>
+
+@code {
+    @inject IJSRuntime JSRuntime
+    @inject NavigationManager NavigationManager
+    public async Task ShareContent(string cardId)
+    {
+        string url = $"{NavigationManager.Uri}#{cardId}";
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", url);
+    }
+}
