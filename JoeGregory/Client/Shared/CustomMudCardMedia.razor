@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Components
+@using MudBlazor.Utilities
+@inherits MudComponentBase
+
+<div @attributes="UserAttributes" title="@Title" class="@Classname" style="@StyleString"></div>
+
+@code {
+    protected string StyleString =>
+        StyleBuilder.Default($"background-image:url(\"{Image}\");background-size: auto 100%;height: {Height}px;")
+            .AddStyle(this.Style)
+            .Build();
+
+    protected string Classname =>
+        new CssBuilder("mud-card-media")
+            .AddClass(Class)
+            .Build();
+
+    /// <summary>
+    /// Title of the image used for accessibility.
+    /// </summary>
+    [Parameter]
+    public string Title { get; set; }
+
+    /// <summary>
+    /// Specifies the path to the image.
+    /// </summary>
+    [Parameter]
+    public string Image { get; set; }
+
+    /// <summary>
+    /// Specifies the height of the image in px.
+    /// </summary>
+    [Parameter]
+    public int Height { get; set; } = 300;
+}

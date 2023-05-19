@@ -1,39 +1,40 @@
 ﻿@page "/"
-@{
-    var description = new MarkupString(
-            @"<p>This is the first paragraph of my project description.
-This is the first paragraph of my project description.
-This is the first paragraph of my project description.
-This is the first paragraph of my project description.
-This is the first paragraph of my project description.</p>
-<p>And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!</p>
-<p>And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!
-And here's another paragraph!</p>");
-}
+@inject PortfolioExperienceServices PortfolioExperienceServices
 
 <PageTitle>Joseph Gregory</PageTitle>
+@foreach(var experience in experiences)
+{
+    <PortfolioCard 
+        Id=@experience.Id
+        ProjectName=experience.ProjectName
+        ValueProposition=experience.ValueProposition
+        TechStack=experience.TechStack
+        ProjectLink=@experience.ProjectLink
+        GitHubRepoLink=@experience.GitHubRepoLink
+        ImageOrVideoLink=@experience.ImageOrVideoLink
+        Description=experience.Description
+        IsVideo=experience.IsVideo 
+    />
+}
 
-<PortfolioCard Id="StudyStacks"
+@*<PortfolioCard Id="StudyStacks"
                ProjectName="Study Stacks"
                ValueProposition="Memorization study helper website"
-               TechStack="Razor pages, C#, SQL"
+               TechStack="Razor pages, C#, SQL. Deployed on Azure"
                ProjectLink="https://www.studystacks.net"
                GithubRepoLink="https://github.com/joe-gregory/StudyStacks"
                ImageOrVideoLink="https://www.youtube.com/embed/9pigruvPi-Q"
                Description=@description 
                IsVideo=true
-               />
+               />*@
 
+<div class="bottom-space"></div>
+
+@code {
+    private List<PortfolioExperience> experiences;
+
+    protected override void OnInitialized()
+    {
+        experiences = PortfolioExperienceServices.PortfolioExperiences;
+    }
+}

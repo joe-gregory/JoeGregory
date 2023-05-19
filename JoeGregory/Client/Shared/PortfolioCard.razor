@@ -1,26 +1,28 @@
 ﻿@code {
-    [Parameter] public string? Id { get; set; }
-    [Parameter] public string? ProjectName { get; set; }
-    [Parameter] public string? ValueProposition { get; set; }
-    [Parameter] public string? TechStack { get; set; }
-    [Parameter] public string? ProjectLink { get; set; }
-    [Parameter] public string? GithubRepoLink { get; set; }
-    [Parameter] public string? ImageOrVideoLink { get; set; }
-    [Parameter] public MarkupString? Description { get; set; }
+    [Parameter] public string Id { get; set; }
+    [Parameter] public MarkupString ProjectName { get; set; }
+    [Parameter] public MarkupString ValueProposition { get; set; }
+    [Parameter] public MarkupString TechStack { get; set; }
+    [Parameter] public string ProjectLink { get; set; }
+    [Parameter] public string GitHubRepoLink { get; set; }
+    [Parameter] public string ImageOrVideoLink { get; set; }
+    [Parameter] public MarkupString Description { get; set; }
     [Parameter] public bool IsVideo { get; set; }
 }
+@inject ISnackbar Snackbar
 
-<MudCard Elevation="23" id="@Id" Class="portfolio-card-sizing">
+<MudCard Elevation="23" id="@Id" Class="portfolio-card-sizing portfolio-card">
     <MudCardHeader>
-        <CardHeaderContent>
-            <MudText Typo="Typo.h6">@ProjectName</MudText>
-            <MudText Typo="Typo.overline">@ValueProposition</MudText>
-            <MudText Typo="Typo.body2"><strong>Tech stack: </strong>@TechStack</MudText>
-            <MudLink Href="@ProjectLink" Underline="Underline.Always">@ProjectLink</MudLink>
-        </CardHeaderContent>
         <CardHeaderActions>
-            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Default" Href="@GithubRepoLink" />
+            <MudIconButton Class="header-content-wrap" Icon="@Icons.Custom.Brands.GitHub" Color="Color.Default" Size="Size.Small" Href="@GitHubRepoLink" />
         </CardHeaderActions>
+        <CardHeaderContent>
+            <MudText Class="header-content-wrap" Typo="Typo.h6">@ProjectName</MudText>
+            <MudText Class="header-content-wrap" Typo="Typo.overline">@ValueProposition</MudText>
+            <MudText Class="header-content-wrap" Typo="Typo.body2"><strong>Tech stack: </strong>@TechStack</MudText>
+            <MudLink Class="header-content-wrap" Href="@ProjectLink" Underline="Underline.Always">@ProjectLink</MudLink>
+        </CardHeaderContent>
+        
     </MudCardHeader>
     @if (IsVideo)
     {
@@ -28,7 +30,7 @@
     }
     else
     {
-        <MudCardMedia Image="@ImageOrVideoLink" Height="500" />
+        <CustomMudCardMedia Image="@ImageOrVideoLink" Height="500" />
     }
     <MudCardContent Class="mt-5">
         <MudExpansionPanels Elevation="20">
@@ -41,13 +43,17 @@
     </MudCardActions>
 </MudCard>
 
-
 @code {
     @inject IJSRuntime JSRuntime
     @inject NavigationManager NavigationManager
+
     public async Task ShareContent(string cardId)
     {
         string url = $"{NavigationManager.Uri}#{cardId}";
         await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", url);
+        Snackbar.Configuration.SnackbarVariant = Variant.Filled;
+        Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopCenter;
+        Snackbar.Configuration.ClearAfterNavigation = true;
+        Snackbar.Add("Information copied to clipboard!", Severity.Info);
     }
 }

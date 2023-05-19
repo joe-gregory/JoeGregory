@@ -14,10 +14,7 @@
         var dialog = DialogService.Show<ContactForm>("Contact Me", parameters, options);
         var result = await dialog.Result;
 
-        if (!result.Canceled)
-        {
-            await jsRuntime.InvokeVoidAsync("alert", "Your message was sent successfully!");
-        }
+      
     }
 }
 

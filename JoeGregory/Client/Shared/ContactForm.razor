@@ -3,24 +3,41 @@
 @using System.Net.Http.Json
 @inject HttpClient HttpClient
 @inject IDialogService DialogService
+@using System.ComponentModel.DataAnnotations;
+@inject ISnackbar Snackbar
 
-<MudPaper Class="pa-4">
+<MudPaper Class="pa-4" id="JoeGregoryContactForm">
     <MudForm @ref="form">
-        <MudText><strong>Email: </strong>joe@gummilabs.com</MudText>
-        <MudText><strong>Cell: </strong> (619) 636 - 0455</MudText>
+        <MudText><strong>Email: </strong>joe@gummilabs.com <MudIconButton Icon="@Icons.Material.Filled.ContentCopy" OnClick="() => CopyToClipboard(email)" /></MudText>
+        <MudText><strong>Cell: </strong> (619) 636 - 0455 <MudIconButton Icon="@Icons.Material.Filled.ContentCopy" OnClick="() => CopyToClipboard(phone)" /></MudText>
         <MudDivider />
         <MudTextField @bind-Value="model.Name" Label="Your Name" For="@(() => model.Name)" HelperText="Enter your full name" Variant="Variant.Text" />
         <MudTextField @bind-Value="model.Email" Label="Your Email" For="@(() => model.Email)" HelperText="Enter your email address" Variant="Variant.Text" />
         <MudTextField @bind-Value="model.Message" Label="Your Message" For="@(() => model.Message)" HelperText="Enter your message" Variant="Variant.Text" />
-        <MudButton Color="Color.Primary" OnClick="Send">Send</MudButton>
+        @if (!isSending)
+        {
+            <MudButton Color="Color.Primary" OnClick="Send">Send</MudButton>
+        }
+        else
+        {
+        <MudProgressCircular Size="Size.Medium" Color="Color.Primary" Indeterminate="true" />
+        }
     </MudForm>
 </MudPaper>
 
 @code {
+    string email = "joe@gummilabs.com";
+    string phone = "(619) 636 0455";
+    bool isSending = false;
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
     class ContactModel
     {
+        [Required]
         public string Name { get; set; }
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required]
         public string Message { get; set; }
     }
 
@@ -29,6 +46,7 @@
 
     async Task Send()
     {
+        isSending = true;
         await form.Validate();
         if (form.IsValid)
         {
@@ -39,10 +57,13 @@
                 parameters.Add("Message", "Your email was successfully sent and you should get a copy in your inbox!");
 
                 var options = new DialogOptions { CloseOnEscapeKey = true };
-                DialogService.Show<Dialogue>("Contact", parameters, options);
+                var dialog = DialogService.Show<Dialogue>("Contact", parameters, options);
+                await dialog.Result;
+                MudDialog.Close();
             }
             else
             {
+
                 var parameters = new DialogParameters();
                 parameters.Add("Message", "There was an error sending the email.");
 
@@ -50,5 +71,17 @@
                 DialogService.Show<Dialogue>("Contact", parameters, options);
             }
         }
+        isSending = false;
+    }
+
+
+    @inject IJSRuntime JSRuntime
+    public async Task CopyToClipboard(string content)
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", content);
+        Snackbar.Configuration.SnackbarVariant = Variant.Filled;
+        Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopCenter;
+        Snackbar.Configuration.ClearAfterNavigation = true;
+        Snackbar.Add("Information copied to clipboard!", Severity.Info);
     }
 }

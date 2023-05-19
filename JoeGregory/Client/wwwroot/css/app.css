@@ -1,7 +1,7 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-@media (min-width: 992px) {
+@media (min-width: 500px) {
     .portfolio-card-sizing {
-        max-width: 70vw;
+        max-width: 75vw;
         margin: auto;
         
     }
@@ -15,6 +15,26 @@
 .portfolio-card{
     margin-bottom: 15px !important;
 }
+.bottom-space{
+    padding-bottom:60px;
+    padding-top:60px;
+}
+
+a.description-link {
+    color: #007bff !important;
+    text-decoration: underline !important;
+}
+
+.card-text-wrap {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+.header-content-wrap {
+    flex-wrap: wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
 /*
 .portfolio-card {
     background-color: #592c8c !important;
@@ -65,7 +85,6 @@ body {
     }
 
     .content {
-        padding-top: 1.1rem;
     }
 
     .valid.modified:not([type=checkbox]) {

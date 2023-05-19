@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoeGregory.Server", "JoeGregory\Server\JoeGregory.Server.csproj", "{AABD188D-3CAC-41DC-8454-C715C6C40705}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoeGregory.Server", "JoeGregory\Server\JoeGregory.Server.csproj", "{AABD188D-3CAC-41DC-8454-C715C6C40705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoeGregory.Client", "JoeGregory\Client\JoeGregory.Client.csproj", "{B50B13CB-21FF-424C-A1C5-B1159698F0D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoeGregory.Client", "JoeGregory\Client\JoeGregory.Client.csproj", "{B50B13CB-21FF-424C-A1C5-B1159698F0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoeGregory.Shared", "JoeGregory\Shared\JoeGregory.Shared.csproj", "{3F399C6B-FB02-49E9-8241-F3EAF9002222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoeGregory.Shared", "JoeGregory\Shared\JoeGregory.Shared.csproj", "{3F399C6B-FB02-49E9-8241-F3EAF9002222}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
