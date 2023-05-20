@@ -35,6 +35,28 @@ a.description-link {
     overflow-wrap: break-word !important;
 }
 
+
+@media (max-width: 415px) {
+    .mud-appbar {
+        height: auto !important;
+        min-height: 65px !important;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 315px) {
+    .mud-appbar {
+        height: auto !important;
+        min-height: 85px !important;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 186px) {
+    .mud-appbar {
+        height: auto !important;
+        min-height: 110px !important;
+        flex-wrap: wrap;
+    }
+}
 /*
 .portfolio-card {
     background-color: #592c8c !important;
