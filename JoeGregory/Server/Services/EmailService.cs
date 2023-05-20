@@ -18,7 +18,7 @@ namespace JoeGregory.Server.Services
         public void SendEmail(string email, string name, string message)
         {
             string subject = $"Joe Gregory Portfolio contact from {name}";
-            string content = $"Contact from Porfolio website Joseph Gregory. Contact Person: {name}\n" + message;
+            string content = $"<u>Contact from Porfolio Website Joseph Gregory.</u><br> <strong>Contact Person:</strong> {name}.<br>" + $"<strong>Contact email:</strong> {email}<br>" + "<strong>Message:</strong><br>"+ message;
             // Configure API key authorization: api-key
             Configuration.Default.ApiKey.Add("api-key", this.apiKey);
 

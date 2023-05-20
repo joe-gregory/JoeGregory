@@ -17,17 +17,6 @@
     />
 }
 
-@*<PortfolioCard Id="StudyStacks"
-               ProjectName="Study Stacks"
-               ValueProposition="Memorization study helper website"
-               TechStack="Razor pages, C#, SQL. Deployed on Azure"
-               ProjectLink="https://www.studystacks.net"
-               GithubRepoLink="https://github.com/joe-gregory/StudyStacks"
-               ImageOrVideoLink="https://www.youtube.com/embed/9pigruvPi-Q"
-               Description=@description 
-               IsVideo=true
-               />*@
-
 <div class="bottom-space"></div>
 
 @code {
@@ -37,4 +26,24 @@
     {
         experiences = PortfolioExperienceServices.PortfolioExperiences;
     }
+
+    @inject IJSRuntime JSRuntime;
+    @inject NavigationManager NavigationManager
+
+    @code {
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                var url = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+
+                if (url.Fragment.Length > 0)
+                {
+                    var elementId = url.Fragment.Substring(1);
+                    await JSRuntime.InvokeVoidAsync("scrollToElement", elementId);
+                }
+            }
+        }
+    }
+
 }
