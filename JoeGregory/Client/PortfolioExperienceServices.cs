@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using static System.Net.WebRequestMethods;
 
 namespace JoeGregory.Client
 {
@@ -80,6 +81,76 @@ namespace JoeGregory.Client
                     <p>The next features that I plan on implemeting in the near future are around the management of a community's accounting by its residents which includes the approval/rejection of public spending democratically in projects and administrator roles. However, as the code base is growing, I plan to refactor the project into C# starting with the backend before implementing these new features. I believe a strongly typed language like C# becomes very useful as the code base grows. I will evaluate if I will keep the frontend in React or if I will migrate to Blazor. However, I will developed the phone applications (and possibly desktop applications for accountants and such) within the .Net ecosystem.</p>
                     <p>If you have any more questions about the project, please reach out to me!</p>
                     ")
+                 });
+
+            PortfolioExperiences.Add(
+                 new PortfolioExperience
+                 {
+                     Id = "SoldaderaCoffee",
+                     ProjectName = new MarkupString("Soldadera Coffee"),
+                     ValueProposition = new MarkupString("Freelance project for coffee cold brew company."),
+                     TechStack = new MarkupString("JS, HTML, CSS"),
+                     ProjectLink = "https://soldaderacoffee.com/",
+                     GitHubRepoLink = "",
+                     ImageOrVideoLink = "/Images/SoldaderaCoffee.png",
+                     IsVideo = false,
+                     Description = new MarkupString(@"
+                    <p>Soldadera is a coffee coldbrew company from the midwest that dedicates some of its resources into empowering women.</p>
+                    <p>This is a website I made for this company. The website showcases a lot of their presence in the media, provides a means for customers to purchase products and also the ability to create blogs</p>
+                    ")
+                 });
+
+            PortfolioExperiences.Add(
+                 new PortfolioExperience
+                 {
+                     Id = "GameOfLife",
+                     ProjectName = new MarkupString("Conway's Game Of Life"),
+                     ValueProposition = new MarkupString("Conway's Game Of Life implemented in vanilla JS"),
+                     TechStack = new MarkupString("JS, HTML, CSS"),
+                     ProjectLink = "https://github.com/joe-gregory/Conways-Game-of-Life",
+                     GitHubRepoLink = "https://github.com/joe-gregory/Conways-Game-of-Life",
+                     ImageOrVideoLink = "https://www.youtube.com/embed/txiGKpUh8QY",
+                     IsVideo = true,
+                     Description = new MarkupString(@"
+                    <p>I am a big fan of Conway's Game of Life, cellular automata and Stephen Wolframs work. This is an implementation I made of Conways Game of Life in vanilla JS.</p>
+                    <p>It can readily be added to any website. Implementation There is an object constructor function that can be used to create the object that runs the simulation. Optional parameters are:
+                    gameOfLife = new makeGame(rows, columns, counterLabel, ms)</p>
+                    <p>Rows and columns expects an integer value for the size of the table. They default to 5 and 10, respectively. counterLabel is the text that appears next to the generations counter. It defaults to 'Generation: ' ms represents the milliseconds between updating the table. It defaults to 300.</p>
+                    <p>Afterwards, call createandRender() on your new object.</p>
+                    ")
+                 });
+
+            PortfolioExperiences.Add(
+                 new PortfolioExperience
+                 {
+                     Id = "Alegra",
+                     ProjectName = new MarkupString("Alegra Dental Care"),
+                     ValueProposition = new MarkupString("Alegra Dental Care Orthodontist"),
+                     TechStack = new MarkupString("JS, HTML, CSS"),
+                     ProjectLink = "https://alegradentalcare.com/",
+                     GitHubRepoLink = "",
+                     ImageOrVideoLink = "/Images/Alegra.png",
+                     IsVideo = false,
+                     Description = new MarkupString(@"
+                    <p>Alegra Dental Care is a freelance website I made for a dental office. The dental office offers restorative dentristry, orthodontics and smile design. Through the website, patients can book appointments.</p>")
+                 });
+
+            PortfolioExperiences.Add(
+                 new PortfolioExperience
+                 {
+                     Id = "Gasi",
+                     ProjectName = new MarkupString("Gasi"),
+                     ValueProposition = new MarkupString("Freelance work for startup developed Android app and IoT MVP."),
+                     TechStack = new MarkupString("Python, Kivy"),
+                     ProjectLink = "",
+                     GitHubRepoLink = "https://github.com/joe-gregory/Gasi-B1/",
+                     ImageOrVideoLink = "/Images/Gasi.jpg",
+                     IsVideo = false,
+                     Description = new MarkupString(@"
+<p>From my experience in consumer product development, I was hired to developed an MVP of a consumer device meant to measure the gas level in lp home tanks.</p>
+<p>I developed an Android application that communicated with with an IoT device that connected to the lp gas tank. I developed the application using Python and <a class='description-link' href='https://kivy.org/'>Kivy</a>, the open source Python app development framework.</p>
+<p>A magnet was applied to a lp gas dial. I designed and 3D printed an attachment for the dial where a hall effect sensor was palced. This sensor was connected to an Arduino Nano IoT board that later communicated the strength measured by the hall effect sensor to a backend that later passed the readings to the Android application.</p>
+")
                  });
         }
 

@@ -13,11 +13,11 @@
     }
 }
 .portfolio-card{
-    margin-bottom: 15px !important;
+    margin-bottom: 65px !important;
 }
 .bottom-space{
     padding-bottom:60px;
-    padding-top:60px;
+    padding-top:0px;
 }
 
 a.description-link {

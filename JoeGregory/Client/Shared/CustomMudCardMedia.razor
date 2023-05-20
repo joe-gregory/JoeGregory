@@ -6,7 +6,7 @@
 
 @code {
     protected string StyleString =>
-        StyleBuilder.Default($"background-image:url(\"{Image}\");background-size: auto 100%;height: {Height}px;")
+        StyleBuilder.Default($"background-image:url(\"{Image}\");background-size: contain;height: {Height}px;")
             .AddStyle(this.Style)
             .Build();
 
