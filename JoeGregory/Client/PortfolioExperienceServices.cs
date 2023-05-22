@@ -152,6 +152,24 @@ namespace JoeGregory.Client
 <p>A magnet was applied to a lp gas dial. I designed and 3D printed an attachment for the dial where a hall effect sensor was palced. This sensor was connected to an Arduino Nano IoT board that later communicated the strength measured by the hall effect sensor to a backend that later passed the readings to the Android application.</p>
 ")
                  });
+
+            PortfolioExperiences.Add(
+                 new PortfolioExperience
+                 {
+                     Id = "Egr409",
+                     ProjectName = new MarkupString("EGR 409 GVSU Machine Design"),
+                     ValueProposition = new MarkupString("GUI to size mechanical components (shafts, screws, clutches, brakes, belts, gears, etc) for a mechanical engineering course at GVSU"),
+                     TechStack = new MarkupString("Python, PySide, PyQt"),
+                     ProjectLink = "",
+                     GitHubRepoLink = "https://github.com/joe-gregory/EGR-409",
+                     ImageOrVideoLink = "/Images/Egr409.PNG",
+                     IsVideo = false,
+                     Description = new MarkupString(@"
+<p>EGR 409 is one of the final courses of the mechanical engineering curriculum at Grand Valley State University. Topics include design of screws, clutches, brakes, belts, gears, journal bearings, roller bearings, and planetary gear trains.</p>
+<p>As the course starting focusing on sizing mechanical components, I built a GUI to quickly go through the process of determining sizing and specs for components.</p>
+<p>The GUI was built for Windows using Pythong and <a class='description-link' href='https://pypi.org/project/PySide/'>PySide</a> which provides Python bindings for the Qt cross-platform application and UI framework.</p>
+")
+                 });
         }
 
     }
