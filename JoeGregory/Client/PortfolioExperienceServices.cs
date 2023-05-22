@@ -168,8 +168,8 @@ namespace JoeGregory.Client
                      IsVideo = false,
                      Description = new MarkupString(@"
 <p>EGR 409 is one of the final courses of the mechanical engineering curriculum at Grand Valley State University. Topics include design of screws, clutches, brakes, belts, gears, journal bearings, roller bearings, and planetary gear trains.</p>
-<p>As the course starting focusing on sizing mechanical components, I built a GUI to quickly go through the process of determining sizing and specs for components.</p>
-<p>The GUI was built for Windows using Pythong and <a class='description-link' href='https://pypi.org/project/PySide/'>PySide</a> which provides Python bindings for the Qt cross-platform application and UI framework.</p>
+<p>As the course advances, it focuses on designing of mechanical systems. This GUI allows you to quickly select the size of bearings, shafts, etc. based on machine specs.</p>
+<p>The GUI was built for Windows using Python and <a class='description-link' href='https://pypi.org/project/PySide/'>PySide</a> which provides Python bindings for the Qt cross-platform application and UI framework.</p>
 ")
                  });
         }
