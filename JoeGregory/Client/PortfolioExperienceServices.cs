@@ -23,7 +23,8 @@ namespace JoeGregory.Client
                     ImageOrVideoLink = "/Images/conNatalia.jpg",
                     IsVideo = false,
                     Description = new MarkupString(@"
-                    <p>Hi, my name is Joseph Gregory. Welcome to my porfolio page built with <a class='description-link' href='https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor'>.Net C# Blazor</a>, <a class='description-link' href='https://mudblazor.com/'>MudBlazor components</a> and some personally built (for example, the component that allows videos inside MudCards). I originally went majored in Mechanical engineering at Grand Valley State University in Michigan. 
+                    <p>Hi, my name is Joseph Gregory. Welcome to my porfolio page built with <a class='description-link' href='https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor'>.Net C# Blazor</a>, <a class='description-link' href='https://mudblazor.com/'>MudBlazor components</a> and components I built (for example, the component that allows videos inside MudCards that you will see in other cards). You can find my resume, linkedin profile and github page on the top navigation bar.</p> 
+                    <p>I originally majored in Mechanical engineering at Grand Valley State University in Michigan. 
                     Throughout my mechanical engineering career, I worked developing new innovative consumer products such as  <a class='description-link link-primary' href='https://www.whirlpoolcorp.com/whirlpool-corporation-debuts-new-zera-food-recycler-on-indiegogo/'>Zera</a>
                     and I also worked in manufacturing helping automate industrial processes such as CM Industry's <a class='description-link' href='https://cmindustryinc.com/innovation/'>steel pallets</a> production line </p>
                     <p>I've always had an inclination for programming and a deep curiosity for learning the many many layers that make computers work. I built my first website
@@ -52,7 +53,7 @@ namespace JoeGregory.Client
                      ImageOrVideoLink = "https://www.youtube.com/embed/9pigruvPi-Q",
                      IsVideo = true,
                      Description = new MarkupString(@"
-                    <p>I built Study Stacks a C# .Net <a class='description-link' href='https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-7.0&tabs=visual-studio'>Razor pages</a> project. Razor pages allows you to take a page-focus approach to building a web application.</p>
+                    <p>I built Study Stacks using C# .Net <a class='description-link' href='https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-7.0&tabs=visual-studio'>Razor pages</a>. Razor pages allows you to take a page-focus approach to building a web application.</p>
                     <p>Study Stacks is featured on LinkedIn on the following <a class='description-link' href='https://www.linkedin.com/advice/0/what-some-benefits-challenges-using-flashcards'>article</a>!</p>                   
                     <p>Study Stacks is a web application that helps students memorize concepts using flashcards and providing comprehensive metrics on their results for different stacks and individual cards.</p>
                     <p>Learners can create an account, stacks, and study sessions that follow a particular order or are random. Metrics of their results are collected along the way.</p>
@@ -76,10 +77,10 @@ namespace JoeGregory.Client
                      IsVideo = true,
                      Description = new MarkupString(@"
                     <p>Plugin Democracy is a nonprofit platform that I founded that allows communities to operate as Direct Democracies. This is the most ambitious and largest software project I've worked on by myself with over 5 thousand lines of code long. Here is a <a class='description-link' href='https://www.youtube.com/embed/b3VnGWQMneQ'>video</a> where I give a tour of the code and the aplication.</p>
-                    <p>The goal of Plugin Democracy is to eliminate the bottlenecks that our current political system introduces. A political system is like any other machine. Its components can be analized to find its inefficiencies. Many political problems, such as corruption, can have a technical solution by open-sourcing the control of public administration and forcing transparency.</p>
-                    <p>The application is currently in used in <a class='description-link' href=''>gated communities</a> in Mexico where it has helped them organize to enact ordenances and make improvements to public spaces.</p>
+                    <p>The goal of Plugin Democracy is to eliminate the bottlenecks that our current political system introduce. A political system is like any other machine. Its components can be analized to find its inefficiencies. Many political problems that involve transparency can have a technical solution by open-sourcing public administration.</p>
+                    <p>The application is currently in use in <a class='description-link' href=''>gated communities</a> in Mexico where it has helped them organize to enact ordenances and make improvements to public spaces.</p>
                     <p>I will be submitting Plugin Democracy to <a class='description-link' href='https://www.ffwd.org/'>fastforward</a> at the end of 2023 where I hope to gather more contributors for the project.</p>
-                    <p>The next features that I plan on implemeting in the near future are related to the management of a community's accounting by its residents which includes the approval/rejection of public spending democratically in projects and administrator roles. However, as the code base is growing, I plan to refactor the project into C# starting with the backend before implementing these new features. I believe a strongly typed language like C# becomes very useful as the code base grows. I will evaluate if I will keep the frontend in React or if I will migrate to Blazor. However, I will developed the mobile applications (and possibly desktop applications for accountants and such) within the .Net ecosystem.</p>
+                    <p>The next features that I plan to implement in the near future are related to community's accounting which includes the approval/rejection of public spending democratically. However, as the code base is growing, I plan to refactor the project into C# starting with the backend before implementing these new features. I believe a strongly typed language like C# becomes very useful as the code base grows. I will evaluate if I will keep the frontend in React or if I will migrate to Blazor. However, I will developed the mobile applications (and possibly desktop applications for accountants and such) within the .Net ecosystem.</p>
                     <p>If you have any more questions about the project, please reach out to me!</p>
                     ")
                  });
@@ -117,7 +118,7 @@ namespace JoeGregory.Client
                     <p>It can readily be added to any website.</p>
                     <p><strong>Instructions to implement: </strong>there is an object constructor function that can be used to create the object that runs the simulation. Optional parameters are:
                     gameOfLife = new makeGame(rows, columns, counterLabel, ms)</p>
-                    <p>Rows and columns expects an integer value for the size of the table. They default to 5 and 10, respectively. counterLabel is the text that appears next to the generations counter. It defaults to 'Generation: ' ms represents the milliseconds between updating the table. It defaults to 300. ms is the time between rendering generations.</p>
+                    <p>Rows and columns expects an integer value for the size of the table. They default to 5 and 10, respectively. counterLabel is the text that appears next to the generations counter. It defaults to 'Generation: ' ms represents the milliseconds between updating the table. It defaults to 300.</p>
                     <p>Afterwards, call createandRender() on your new object.</p>
                     ")
                  });
@@ -150,7 +151,7 @@ namespace JoeGregory.Client
                      IsVideo = false,
                      Description = new MarkupString(@"
 <p>From my experience in consumer product development, I was hired to developed an MVP of a consumer device meant to measure the gas level in lp home tanks.</p>
-<p>I developed an Android application that communicated with with an IoT device that connected to the lp gas tank. I developed the application using Python and <a class='description-link' href='https://kivy.org/'>Kivy</a>, the open source Python app development framework.</p>
+<p>I developed an Android application that communicated with an IoT device that connected to the lp gas tank. I developed the application using Python and <a class='description-link' href='https://kivy.org/'>Kivy</a>, the open source Python app development framework.</p>
 <p>A magnet was attached to a lp gas dial. I designed and 3D printed an attachment for the dial where a hall effect sensor was placed to read the displacement of the magnet as the dial moved. This sensor was connected to an Arduino Nano IoT board that later communicated the strength measured by the hall effect sensor to a backend. The readings were forwarded to the Android application.</p>
 ")
                  });
@@ -168,7 +169,7 @@ namespace JoeGregory.Client
                      IsVideo = false,
                      Description = new MarkupString(@"
 <p>EGR 409 is one of the final courses of the mechanical engineering curriculum at Grand Valley State University. Topics include design of screws, clutches, brakes, belts, gears, journal bearings, roller bearings, and planetary gear trains.</p>
-<p>As the course advances, it focuses on designing of mechanical systems. This GUI allows you to quickly select the size of bearings, shafts, etc. based on machine specs.</p>
+<p>As the course advances, it focuses on design of mechanical systems. This GUI allows you to quickly select the size of bearings, shafts, etc. based on machine specs.</p>
 <p>The GUI was built for Windows using Python and <a class='description-link' href='https://pypi.org/project/PySide/'>PySide</a> which provides Python bindings for the Qt cross-platform application and UI framework.</p>
 ")
                  });
