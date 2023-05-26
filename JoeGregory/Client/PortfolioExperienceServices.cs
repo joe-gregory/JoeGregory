@@ -77,6 +77,7 @@ namespace JoeGregory.Client
                      IsVideo = true,
                      Description = new MarkupString(@"
                     <p>Plugin Democracy is a nonprofit platform that I founded that allows communities to operate as Direct Democracies. This is the most ambitious and largest software project I've worked on by myself with over 5 thousand lines of code long. Here is a <a class='description-link' href='https://www.youtube.com/embed/b3VnGWQMneQ'>video</a> where I give a tour of the code and the aplication.</p>
+                    <p>The React frontend is deployed on AWS S3 and the API runs in an AWS EC2 instance.</p>                    
                     <p>The goal of Plugin Democracy is to eliminate the bottlenecks that our current political system introduce. A political system is like any other machine. Its components can be analized to find its inefficiencies. Many political problems that involve transparency can have a technical solution by open-sourcing public administration.</p>
                     <p>The application is currently in use in <a class='description-link' href=''>gated communities</a> in Mexico where it has helped them organize to enact ordenances and make improvements to public spaces.</p>
                     <p>I will be submitting Plugin Democracy to <a class='description-link' href='https://www.ffwd.org/'>fastforward</a> at the end of 2023 where I hope to gather more contributors for the project.</p>
