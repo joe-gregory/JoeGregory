@@ -16,30 +16,39 @@ namespace JoeGregory.Client
                 {
                     Id = "personal",
                     ProjectName = new MarkupString("About Me"),
-                    ValueProposition = new MarkupString("Self taught C# developer with a mechanical engineering background. Teamplayer, responsible, dedicated."),
-                    TechStack = new MarkupString("C#, JavaScript, Python, Sql, NoSql"),
+                    ValueProposition = new MarkupString("Self-taught C# developer who's enthusiastic, dedicated, and team-oriented."),
+                    TechStack = new MarkupString("C#, JavaScript, Blazor, React, SQL, NoSQL"),
                     ProjectLink = "https://www.linkedin.com/in/josephegregory/",
                     GitHubRepoLink = "https://github.com/joe-gregory",
                     ImageOrVideoLink = "/Images/conNatalia.jpg",
                     IsVideo = false,
                     Description = new MarkupString(@"
-                    <p>Hi, my name is Joseph Gregory. Welcome to my porfolio page built with <a class='description-link' href='https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor'>.Net C# Blazor</a>, <a class='description-link' href='https://mudblazor.com/'>MudBlazor components</a> and components I built (for example, the component that allows videos inside MudCards that you will see in other cards). You can find my resume, linkedin profile and github page on the top navigation bar.</p> 
-                    <p>I originally majored in Mechanical engineering at Grand Valley State University in Michigan. 
-                    Throughout my mechanical engineering career, I worked developing new innovative consumer products such as  <a class='description-link link-primary' href='https://www.whirlpoolcorp.com/whirlpool-corporation-debuts-new-zera-food-recycler-on-indiegogo/'>Zera</a>
-                    and I also worked in manufacturing helping automate industrial processes such as CM Industry's <a class='description-link' href='https://cmindustryinc.com/innovation/'>steel pallets</a> production line </p>
-                    <p>I've always had an inclination for programming and a deep curiosity for learning the many many layers that make computers work. I built my first website
-                    back in the days when you could get AOL cds on cereal boxes and I worked on many hobby projects along the way.</p>
-                    <p>During my mechanical engineering degree, many of my projects I decided to work on were software based including a <a class='description-link' href='https://www.gvsu.edu/engineering/carlson/feht/download'>Finite Element Heat Transfer</a> simulator (written with Python and PyQt) GUI that I gave to the school for their FEHT course in the ME program. 
-                    I've developed websites and programmed microcontrollers and prototypes as a freelancer for startups.</p>
-                    <p>While I don't regret the path I've taken, it became clear to me later in life that programming and computers is what I am most passionate about. I may have not gone to school 
-                    for computer science but studying it from the outside and from a different background gave me an opportunity for a different perspective. </p>
-                    <p>I am currently looking for a role as a C# developer. I really like the ecosystem that Microsoft has built with .Net and its many applications. I would like to 
-                    grow a long career in this ecosystem. I hope you can consider giving me an opportunity. I consider myself a hard worker, team player, and self-learner. I look forward to bringing value to your team and company while learning from you.
-                    Please take a look around my porftolio page (built using Blazor) and feel free to contact me if you have any questions.</p>
-                    <p>You can contact me using the contact form on the footer or by using the convenient buttons to copy my contact information on the same form.</p>
+                    <p>Hi, my name is Joseph Gregory; I'm an entry-level C# developer. I am thrilled to welcome you to my porfolio page crafted with <a class='description-link' href='https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor'>.Net C# Blazor</a>, <a class='description-link' href='https://mudblazor.com/'>MudBlazor components</a> and components I built (for example, the component that allows videos inside MudCards that you will see in other cards). You can find my resume, linkedin profile and github page on the top navigation bar.</p> 
+                    <p>I graduated in Mechanical engineering at Grand Valley State University in Michigan. Throughout my mechanical engineering career, I worked developing new innovative consumer products such as  <a class='description-link link-primary' href='https://www.whirlpoolcorp.com/whirlpool-corporation-debuts-new-zera-food-recycler-on-indiegogo/'>Zera</a> and I also worked in manufacturing helping automate industrial processes such as CM Industry's <a class='description-link' href='https://cmindustryinc.com/innovation/'>steel pallets</a> production line </p>
+                    <p>However, my fascination for programming and intricate layers of computer technology led me down a different path. While I cherish my engineering background, my true passion lies in programming and computer technology. I am currently seeking a role as a C# developer. I'm fascinated by the ecosystem that Microsoft has built with .Net and its diverse applications, and I aim to nurture a long-term career within it. I am a hard-working, team-oriented, and self-learner. I am eager to bring value to your team and learn from you as well.<p>
+                    <p>Please take a moment to browse through my portfolio and contact me using the footer form below or use the convenient copy contact info buttons. I look forward to hearing from you soon!</p>
                     ")
                 }
             );
+
+            PortfolioExperiences.Add(
+                 new PortfolioExperience
+                 {
+                     Id = "MudBlazor",
+                     ProjectName = new MarkupString("MudBlazor Contributions"),
+                     ValueProposition = new MarkupString("Contributing to the MudBlazor project to improve its UI components and enhance overall user experience"),
+                     TechStack = new MarkupString("C#, Blazor, Material Design, CSS"),
+                     ProjectLink = "https://github.com/MudBlazor/MudBlazor",
+                     GitHubRepoLink = "https://github.com/joe-gregory/MudBlazor",
+                     ImageOrVideoLink = "/Images/MudBlazor.png",
+                     IsVideo = false,
+                     Description = new MarkupString(@"
+                        <p>MudBlazor is a Material Design component framework for Blazor catering to .NET developers and written entirely in C#.</p>
+                        <p>In an effort to broaden my experience beyond individual projects, I've begun contributing to this open-source project. I chose MudBlazor because of my interest in Blazor and SPAs and the user experience they provide.</p>
+                        <p>Currently, I am addressing a <a class='description-link' href='https://github.com/MudBlazor/MudBlazor/issues/5848'>bug</a> that causes a height change in MudNavLink components when a drawer is opened. My approach is to inspect and modify the line-height property in the associated CSS file to ensure consistent sizing.</p>
+                        <p>This card will be updated with my future contributions.</p>
+                        ")
+                 });
 
             PortfolioExperiences.Add(
                  new PortfolioExperience
