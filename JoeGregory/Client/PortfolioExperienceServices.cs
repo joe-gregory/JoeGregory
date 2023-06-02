@@ -45,8 +45,8 @@ namespace JoeGregory.Client
                      Description = new MarkupString(@"
                         <p>MudBlazor is a Material Design component framework for Blazor catering to .NET developers and written entirely in C#.</p>
                         <p>In an effort to broaden my experience beyond individual projects, I've begun contributing to this open-source project. I chose MudBlazor because of my interest in Blazor and SPAs and the user experience they provide.</p>
-                        <p>Currently, I am addressing a <a class='description-link' href='https://github.com/MudBlazor/MudBlazor/issues/5848'>bug</a> that causes a height change in MudNavLink components when a drawer is opened. My approach is to inspect and modify the line-height property in the associated CSS file to ensure consistent sizing.</p>
-                        <p>This card will be updated with my future contributions.</p>
+                        <p>Most recently, I've submitted the following <a class='description-link' href='https://github.com/MudBlazor/MudBlazor/pull/6958'>pull request</a> which solves an UI issue with MudDrawers. When MudDrawers are in mini mode and have MudNavLinks inside, icons of the MudDrawer get unintentionally pushed vertically. This PR solves that issue by providing different CSS rules to MudNavLink when it is inside a mini MudDrawer.</p>                  
+                        <p>I will continually update this card with my contributions.</p>
                         ")
                  });
 
